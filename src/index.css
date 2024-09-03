@@ -1,68 +1,68 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body, html, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(46, 46, 46);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.generic-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.nav-bar {
+    background-color: rgb(46, 46, 46);
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    justify-content: center; /* Los alinea de forma horizontal*/
+    align-items: center; /* Los alinea de forma vertical*/
+    gap: 15px; /* Ajusta espacio entre items*/
+    position: fixed;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.nav-link {
+    height: 40%;
+    padding: 5px 15px;
+    display: flex; /* Junto con align-items permie que el texto se pueda centrar*/
+    align-items: center; /* Junto con display flex permite centrar el texto de forma vertical*/
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Sin esto es muy brusco el cambio de background */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.nav-bar .nav-link:hover {
+    background-color: lightgray;
+    transition: background-color 0.3s ease; /* Suaviza cambio de color*/
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+.animation-container {
+    flex: 1; /* Ocupa 1 parte del total*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.information-container {
+    height: calc(100vh - 8vh);
+    margin-top: 8vh;
+    flex: 3; /* Ocupa 3 partes del total */
+    display: flex; /* Permite que los elementos hijos puedan moverse*/
+    flex-direction: column; /* Cambia el eje central a columna. Por defectl el flex es horizontal*/
+    justify-content: flex-start; /* Permite que los elementos hijos se alineen desde el principio hacia el final*/
+    align-items: center;
+    overflow-y: auto; /* junto con flex-shink: 0 permite que los elementos no se aprieten y se pueda hacer scrolling*/
+}
+
+.section-container {
+    height: 60vh;
+    flex-shrink: 0;
+    color: white;
 }
