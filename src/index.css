@@ -4,17 +4,16 @@ body, html, #root {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(238, 210, 160);
 }
 
 .generic-container {
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    position:relative;
 }
 
 .nav-bar {
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(238, 210, 160);
     display: flex;
     width: 100%;
     height: 8vh;
@@ -22,38 +21,53 @@ body, html, #root {
     align-items: center; /* Los alinea de forma vertical*/
     gap: 15px; /* Ajusta espacio entre items*/
     position: fixed;
+    z-index: 1; /* el position relative de generic-container bloquea el hover por lo qe se debe resaltar en el eje z este elemento*/
+}
+
+.nav-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 80%;
+    background-color: rgb(46, 46, 46);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nav-link {
+    position: relative;
     height: 40%;
     padding: 5px 15px;
     display: flex; /* Junto con align-items permie que el texto se pueda centrar*/
     align-items: center; /* Junto con display flex permite centrar el texto de forma vertical*/
     text-decoration: none;
-    color: white;
+    color: black;
     cursor: pointer;
-    background-color: green;
     border-radius: 5px;
-    transition: background-color 0.3s ease; /* Sin esto es muy brusco el cambio de background */
+    /*transition: background-color 0.3s ease; /* Sin esto es muy brusco el cambio de background */
+    transition: transform  0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-bar .nav-link:hover {
-    background-color: lightgray;
-    transition: background-color 0.3s ease; /* Suaviza cambio de color*/
+.nav-link:hover {
+    transform: translateY(-5px); /*Efecto de levantar elemento*/
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 
 .animation-container {
-    flex: 1; /* Ocupa 1 parte del total*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
 }
 
 .information-container {
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 100%;
     height: calc(100vh - 8vh);
     margin-top: 8vh;
-    flex: 3; /* Ocupa 3 partes del total */
     display: flex; /* Permite que los elementos hijos puedan moverse*/
     flex-direction: column; /* Cambia el eje central a columna. Por defectl el flex es horizontal*/
     justify-content: flex-start; /* Permite que los elementos hijos se alineen desde el principio hacia el final*/
@@ -62,7 +76,69 @@ body, html, #root {
 }
 
 .section-container {
-    height: 60vh;
-    flex-shrink: 0;
-    color: white;
+    width: 100%;
+    padding-bottom: 10%;
+    color: black;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+}
+
+.section-container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.main-title {
+    font-size: 4rem;
+}
+
+.second-name {
+    font-size: 3rem;
+}
+
+.body-text {
+    margin-left: 25%;
+    margin-right: 25%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: justify;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: calc(100vh - 8vh);
+    margin-top: 8vh;
+    top: 0;
+    right: 0;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.contact-wrapper {
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.contact-wrapper:hover {
+    transform: scale(1.2);
+}
+
+.icon {
+    color: black;
+}
+
+.tooltip {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+}
+
+.contact-wrapper:hover .tooltip {
+    opacity: 1;
 }

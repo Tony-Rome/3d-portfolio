@@ -6,9 +6,9 @@ const App = () => {
     return (
         <main>
             <Router>
-                <NavBar />
+                <NavBar/>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
+                    <Route path="/" element={<Home/>}/>
                 </Routes>
             </Router>
         </main>

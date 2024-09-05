@@ -16,14 +16,14 @@ const NavBar = () => {
 
     return (
         <header className="nav-bar">
-                <NavLink to="/" className="nav-link" onClick={() => scrollToSection('home')}>
-                    <p className="">Home</p>
-                </NavLink>
-                <NavLink to="/" className="nav-link" onClick={() => scrollToSection('detail')}>
-                    <p className="">Detalle técnico</p>
+                <NavLink to="/" className="nav-link" onClick={() => scrollToSection('init')}>
+                    <p className="">Inicio</p>
                 </NavLink>
                 <NavLink to="/" className="nav-link" onClick={() => scrollToSection('work')}>
-                    <p className="">Trabajos anteriores</p>
+                    <p className="">Experiencia</p>
+                </NavLink>
+                <NavLink to="/" className="nav-link" onClick={() => scrollToSection('stack')}>
+                    <p className="">Stack tecnológico</p>
                 </NavLink>
                 <NavLink to="/" className="nav-link" onClick={() => scrollToSection('me')}>
                     <p className="">Sobre mí</p>
